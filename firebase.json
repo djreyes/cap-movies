@@ -1,0 +1,9 @@
+{
+  "firebase": "cap-movies",
+  "public": "public",
+  "ignore": [
+    "firebase.json",
+    "**/.*",
+    "**/node_modules/**"
+  ]
+}
