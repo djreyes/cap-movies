@@ -8,10 +8,6 @@
  * Controller of the capMoviesApp
  */
 angular.module('capMoviesApp')
-  .controller('MainCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+  .controller('MainCtrl', function ($scope, Ref, $firebaseArray) {
+    $scope.movies = $firebaseArray(Ref.child('movies').limit(25));
   });
