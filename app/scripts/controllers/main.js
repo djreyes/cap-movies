@@ -9,5 +9,5 @@
  */
 angular.module('capMoviesApp')
   .controller('MainCtrl', function ($scope, Ref, $firebaseArray) {
-    $scope.movies = $firebaseArray(Ref.child('movies').limit(25));
+    $scope.movies = $firebaseArray(Ref.child('movies').limitToFirst(25));
   });

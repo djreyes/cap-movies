@@ -61,7 +61,19 @@ angular.module('capMoviesApp')
         templateUrl: 'views/main.html',
         controller: 'MainCtrl'
       })
-
+      .when('/movies', {
+        templateUrl: 'views/main.html',
+        controller: 'MainCtrl'
+      })
+      .when('/movies/:movieId', {
+        templateUrl: 'views/movie.html',
+        controller: 'MovieCtrl',
+        resolve: {
+          movie: function ($route, Ref, $firebaseObject) {
+            return $firebaseObject(Ref.child('movies').child($route.current.params.movieId));
+          }
+        }
+      })
       .when('/chat', {
         templateUrl: 'views/chat.html',
         controller: 'ChatCtrl'
